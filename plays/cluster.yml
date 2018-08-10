@@ -1,10 +1,11 @@
 ---
 - hosts: localhost
-  gather_facts: False
+  gather_facts: true
   roles:
     - { role: kubespray-defaults}
     - { role: bastion-ssh-config, tags: ["localhost", "bastion"]}
-    - { role: download, tags: download, skip_downloads: false }
+    - { role: docker, tags: docker, become: True }
+    - { role: download, tags: download, become: True, skip_downloads: false }
 
 - hosts: k8s-cluster:etcd:calico-rr
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
