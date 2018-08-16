@@ -19,7 +19,7 @@ kube_users_dir: "{{ kube_config_dir }}/users"
 kube_api_anonymous_auth: true
 
 ## Change this to use another Kubernetes version, e.g. a current beta release
-kube_version: v1.10.4
+kube_version: v1.11.2
 
 # Where the binaries will be downloaded.
 # Note: ensure that you've enough disk space (about 1G)
@@ -67,25 +67,21 @@ kube_users:
 # Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
 kube_network_plugin: calico
 
-# weave's network password for encryption
-# if null then no network encryption
-# you can use --extra-vars to pass the password in command line
-weave_password: EnterPasswordHere
-
-# Weave uses consensus mode by default
-# Enabling seed mode allow to dynamically add or remove hosts
-# https://www.weave.works/docs/net/latest/ipam/
-weave_mode_seed: false
-
-# This two variable are automatically changed by the weave's role, do not manually change these values
-# To reset values :
-# weave_seed: uninitialized
-# weave_peers: uninitialized
-weave_seed: uninitialized
-weave_peers: uninitialized
-
-# Set the MTU of Weave (default 1376, Jumbo Frames: 8916)
-weave_mtu: 1376
+# Weave deployment
+# weave_password: ~
+# weave_checkpoint_disable: false
+# weave_conn_limit: 100
+# weave_hairpin_mode: true
+# weave_ipalloc_range: {{ kube_pods_subnet }}
+# weave_expect_npc: {{ enable_network_policy }}
+# weave_kube_peers: ~
+# weave_ipalloc_init: ~
+# weave_expose_ip: ~
+# weave_metrics_addr: ~
+# weave_status_addr: ~
+# weave_mtu: 1376
+# weave_no_masq_local: true
+# weave_extra_args: ~
 
 # Enable kubernetes network policies
 enable_network_policy: false
@@ -167,6 +163,9 @@ helm_deployment_type: host
 # K8s image pull policy (imagePullPolicy)
 k8s_image_pull_policy: IfNotPresent
 
+# audit log for kubernetes
+kubernetes_audit: false
+
 # Kubernetes dashboard
 # RBAC required. see docs/getting-started.md for access details.
 dashboard_enabled: true
@@ -176,9 +175,6 @@ efk_enabled: false
 
 # Helm deployment
 helm_enabled: false
-
-# Istio deployment
-istio_enabled: false
 
 # Registry deployment
 registry_enabled: false

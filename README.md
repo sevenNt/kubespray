@@ -90,21 +90,21 @@ Supported Components
 --------------------
 
 -   Core
-    -   [kubernetes](https://github.com/kubernetes/kubernetes) v1.10.4
+    -   [kubernetes](https://github.com/kubernetes/kubernetes) v1.11.2
     -   [etcd](https://github.com/coreos/etcd) v3.2.18
     -   [docker](https://www.docker.com/) v17.03 (see note)
     -   [rkt](https://github.com/rkt/rkt) v1.21.0 (see Note 2)
 -   Network Plugin
     -   [calico](https://github.com/projectcalico/calico) v2.6.8
     -   [canal](https://github.com/projectcalico/canal) (given calico/flannel versions)
-    -   [cilium](https://github.com/cilium/cilium) v1.0.0-rc8
+    -   [cilium](https://github.com/cilium/cilium) v1.1.2
     -   [contiv](https://github.com/contiv/install) v1.1.7
     -   [flanneld](https://github.com/coreos/flannel) v0.10.0
-    -   [weave](https://github.com/weaveworks/weave) v2.3.0
+    -   [weave](https://github.com/weaveworks/weave) v2.4.0
 -   Application
     -   [cephfs-provisioner](https://github.com/kubernetes-incubator/external-storage) v1.1.0-k8s1.10
-    -   [cert-manager](https://github.com/jetstack/cert-manager) v0.3.2
-    -   [ingress-nginx](https://github.com/kubernetes/ingress-nginx) v0.16.2
+    -   [cert-manager](https://github.com/jetstack/cert-manager) v0.4.1
+    -   [ingress-nginx](https://github.com/kubernetes/ingress-nginx) v0.18.0
 
 Note: kubernetes doesn't support newer docker versions. Among other things kubelet currently breaks on docker's non-standard version numbering (it no longer uses semantic versioning). To ensure auto-updates don't break your cluster look into e.g. yum versionlock plugin or apt pin).
 
