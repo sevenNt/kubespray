@@ -7,7 +7,7 @@ skip_downloads: false
 # if this is set to true will only download files once. Doesn't work
 # on Container Linux by CoreOS unless the download_localhost is true and localhost
 # is running another OS type. Default compress level is 1 (fastest).
-download_run_once: False
+download_run_once: True
 download_compress: 1
 
 # if this is set to true, uses the localhost for download_run_once mode
@@ -15,7 +15,7 @@ download_compress: 1
 # local caching of docker images or for Container Linux by CoreOS cluster nodes.
 # Otherwise, uses the first node in the kube-master group to store images
 # in the download_run_once mode.
-download_localhost: False
+download_localhost: True
 
 # Always pull images if set to True. Otherwise check by the repo's tag/digest.
 download_always_pull: False
@@ -583,7 +583,7 @@ downloads:
       - kube-node
 
 download_defaults:
-  container: false
+  container: true
   file: false
   repo: None
   tag: None
