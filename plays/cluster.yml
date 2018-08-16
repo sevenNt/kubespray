@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  gather_facts: true
+  gather_facts: false
   roles:
     - { role: kubespray-defaults}
     - { role: bastion-ssh-config, tags: ["localhost", "bastion"]}
@@ -22,6 +22,8 @@
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
   vars:
     ansible_ssh_pipelining: true
+    ansible_gather_timeout: 30
+    ansible_timeout: 60
   gather_facts: true
   pre_tasks:
     - name: gather facts from all instances
