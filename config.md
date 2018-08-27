@@ -2,6 +2,7 @@ Quick Start
 -----------
 
 - 1. 配置ssh
+vim inventory/mycluster/hosts.ini
 node1 
 ```bash
 swapoff -a # 关闭分区
