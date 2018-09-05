@@ -68,3 +68,11 @@ ssh root@<node3>
 ansible-playbook -vvv -i inventory/mycluster/hosts.ini plays/cluster.yml
 ansible-playbook -vvv -i inventory/mycluster/hosts.ini plays/cluster.yml --limit @/home/zhangjin/kubespray/plays/cluster.retry
 ```
+
+### 常见问题
+- 更换IP后集群无法启动？
+  > ansible-playbook -vvv -i inventory/mycluster/hosts.ini plays/reset.yml
+
+  > ansible-playbook -vvv -i inventory/mycluster/hosts.ini plays/cluster.yml
+- 某个节点连接成功，但是get不到？
+  > ssh该节点，查看kubelet日志，查看nginx的80端口是否被占用，重启kubelet、docker。
